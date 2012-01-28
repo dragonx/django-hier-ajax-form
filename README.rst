@@ -1,4 +1,4 @@
-Hiirarchical Django AJAX Forms
+Hierarchical Django AJAX Forms
 ==============================
 
 This project takes the gruntwork out of making Django forms with dynamic AJAX select fields for hierarchical data sets, such as (country, state, city, neighborhood) or (vehicle make, model, trim).
