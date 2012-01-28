@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Demo Form</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /> 
+  </head>
+
+  <body>
+
+	<form id="{{ formid }}" method="post" action="{{ submiturl }}">
+	    <table id="input">{{ form }}</table>
+	    <input id="btn" type="submit" value="{{ btntxt }}"/>
+	</form>
+
+  </body>
+
+  <script src="http://yui.yahooapis.com/3.4.1/build/yui/yui-min.js"></script>
+  <script src="{{ jsurl }}"></script>
+</html>
