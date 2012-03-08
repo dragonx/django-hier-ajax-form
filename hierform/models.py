@@ -13,8 +13,8 @@ class DemoModel(models.Model):
     The order of the fields is important.  The top of the hierarchy needs to be at the top.
     If the order is inverted, modifying a higher field will not properly reset the lower fields in the form.
     '''
-    name = models.CharField(max_length=256)
-    address = models.CharField(max_length=256)
+    name = models.CharField(max_length=256, blank=True, null=True)
+    address = models.CharField(max_length=256, blank=True, null=True)
     country = HierarchicalForeignKey(location.models.Country)
     state = HierarchicalForeignKey(location.models.State)
     city = HierarchicalForeignKey(location.models.City)

@@ -25,7 +25,7 @@ def demoform(request):
                    'btntxt' : "Submit form",
                    'jsurl'  : 'djhform.js' }
     
-        params["form"] = DemoForm().ajaxRequest(request.GET) # Magic!
+        params["form"] = DemoForm().ajaxRequest(request) # Magic!
         if request.GET:
             '''
             This is an AJAX request with form parameters set.
