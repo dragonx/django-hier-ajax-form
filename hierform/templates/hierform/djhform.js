@@ -12,7 +12,7 @@ YUI().use(['node', 'io-form'], function (Y) {
                         var n = newnode.one('select');
                         if(n)
                         {
-                            Y.one("#"+n.get('id')).setContent(n.get('childNodes'));
+                            Y.one("#"+n.get('id')).replace(n);
                         }
                     }
                     nodelist.each(findAndReplace);
@@ -22,5 +22,5 @@ YUI().use(['node', 'io-form'], function (Y) {
             arguments: null
         });
     }
-    Y.one('#'+formid).delegate('change', handleSelect, 'select');
+    Y.one('#'+formid).delegate('change', handleSelect, '.djhselect');
 });

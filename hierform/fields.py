@@ -11,6 +11,7 @@ class HierarchicalModelChoiceField(ModelChoiceField):
         '''
         self._hierarchical_parent_field = kwargs.pop("_hierarchical_parent_field", None)
         self.field = kwargs.pop("field", None)
+        kwargs["widget"] = forms.Select(attrs={'class':"djhselect"})
         return super(HierarchicalModelChoiceField, self).__init__(**kwargs)
         
     def updateQueryset(self, filter_objs):
@@ -34,7 +35,7 @@ class HierarchicalModelChoiceField(ModelChoiceField):
             hierarchical child reads it.
             '''
             obj = filter_objs[self.field.name]
-            if isinstance(obj,models.Model) and not self.queryset.filter(id=obj.id):
+            if isinstance(obj,models.Model) and not self.queryset.filter(pk=obj.pk):
                 logging.debug("updateQueryset " + str(self.field.name) + " found invalid object " + str(filter_objs[self.field.name]))                     
                 filter_objs[self.field.name] = None
                      
