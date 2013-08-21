@@ -25,7 +25,7 @@ class HierarchicalModelChoiceField(ModelChoiceField):
             '''
             if self._hierarchical_parent_field.name in filter_objs:
                 f = { self._hierarchical_parent_field.name : filter_objs[self._hierarchical_parent_field.name] } # Create a filter based on the parent in the hierarchy
-                self.queryset  = self.field.rel.to.objects.filter(**f) # Filter the queryset based on the filter.
+                self.queryset  = self.field.rel.to.objects.filter(**f).order_by('name') # Filter the queryset based on the filter.
             else:
                 self.queryset = self.field.rel.to.objects.none() # Initally blank until parent field updated
         if self.field.name in filter_objs and filter_objs[self.field.name]:

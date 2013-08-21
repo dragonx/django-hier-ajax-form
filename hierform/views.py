@@ -51,4 +51,4 @@ def javascript(request):
     params = { 'formid' : 'createform',
                'ajaxurl': 'demoform'
              }
-    return render_to_response('hierform/djhform.js', params)
+    return render_to_response('hierform/djhform.js', params, content_type='application/javascript')

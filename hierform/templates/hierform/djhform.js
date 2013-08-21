@@ -1,7 +1,7 @@
 YUI().use(['node', 'io-form'], function (Y) {
     var formid = '{{ formid }}';
     var ajaxurl = '{{ ajaxurl }}';
-    function handleSelect() {
+    function handleSelect(e) {
         Y.io(ajaxurl, {
             method: 'GET',
             form: { id : formid },
@@ -21,6 +21,9 @@ YUI().use(['node', 'io-form'], function (Y) {
             },
             arguments: null
         });
+        try {
+            e.currentTarget.ancestor('tr').next().one('select').set('innerHTML', '<option>Loading...</option>');
+        } catch (ex) {} 
     }
     Y.one('#'+formid).delegate('change', handleSelect, '.djhselect');
 });
